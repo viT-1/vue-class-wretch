@@ -1,15 +1,22 @@
 {
 	"name": "systemjs-ts-es6-vue",
-    "version": "0.4.3",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/viT-1/issue-vue-property-decorator-285.git"
+	"version": "0.4.3",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/viT-1/issue-vue-property-decorator-285.git"
 	},
 	"dependencies": {
 		"vue": "2.6.10",
 		"vue-property-decorator": "8.3.0"
 	},
 	"devDependencies": {
-		"typescript": "^3.7.2"
+		"rimraf": "3.0.0",
+		"ttypescript": "1.5.8",
+		"typescript": "^3.7.2",
+		"typescript-transform-paths": "1.1.13"
+	},
+	"scripts": {
+		"predeploy": "rimraf dist",
+		"deploy": "ttsc"
 	}
 }

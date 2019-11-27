@@ -1,0 +1,21 @@
+{
+	"compilerOptions": {
+		"allowJs": true,
+		"baseUrl": ".",
+		"experimentalDecorators": true,
+		"module": "es6",
+		"moduleResolution": "node",
+		"outDir": "dist",
+		"paths": {
+			"~/*": ["./*"],
+			"vue": ["https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js"],
+			"vue-property-decorator": ["https://cdn.jsdelivr.net/npm/vue-property-decorator@8.3.0/lib/vue-property-decorator.umd.min.js"]
+		},
+		"plugins": [{ "transform": "typescript-transform-paths" }],
+		"strict": true,
+		"target": "esnext"
+	},
+	"exclude": [
+		"**/node_modules/*"
+	]
+}
