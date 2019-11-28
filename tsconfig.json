@@ -9,7 +9,7 @@
 		"paths": {
 			"~/*": ["./*"],
 			"vue": ["https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js"],
-			"vue-property-decorator": ["https://cdn.jsdelivr.net/npm/vue-property-decorator@8.3.0/lib/vue-property-decorator.umd.min.js"]
+			"vue-class-component": ["https://cdn.jsdelivr.net/npm/vue-class-component@7.1.0/dist/vue-class-component.esm.js"]
 		},
 		"plugins": [{ "transform": "typescript-transform-paths" }],
 		"strict": true,

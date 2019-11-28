@@ -1,4 +1,4 @@
-import { Component,	Mixins } from 'vue-property-decorator';
+import Component from 'vue-class-component';
 
 import { BaseComponent } from './BaseComponent';
 
@@ -6,4 +6,4 @@ import { BaseComponent } from './BaseComponent';
 	name: 'my-component',
 	template: '<span class="my-component"></span>',
 })
-export class SomeComponent extends Mixins(BaseComponent) {}
+export class SomeComponent extends BaseComponent {}

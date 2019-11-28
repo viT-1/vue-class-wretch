@@ -6,7 +6,10 @@ const app = express();
 
 app.use(express.static(
 	path.resolve('dist'),
-	{ cacheControl: false },
+	{
+		cacheControl: false,
+		extensions: ['js'],
+	},
 ));
 
 app.get('/', (req, res): void => {
