@@ -1,6 +1,6 @@
 {
 	"name": "issue-vue-property-decorator-285",
-	"version": "0.0.2",
+	"version": "0.0.3",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/viT-1/issue-vue-property-decorator-285.git"
@@ -12,16 +12,16 @@
 	},
 	"devDependencies": {
 		"@types/express": "4.11.1",
-		"cpy-cli": "2.0.0",
 		"esm": "3.2.25",
-		"rimraf": "3.0.0",
+		"shx": "0.3.2",
 		"ttypescript": "1.5.8",
 		"typescript": "^3.7.2",
 		"typescript-transform-paths": "1.1.13"
 	},
 	"scripts": {
-		"predeploy": "rimraf dist | cpy src/index.html dist",
+		"predeploy": "shx rm -rf dist",
 		"deploy": "ttsc",
-		"postdeploy": "node -r esm ./dist/express.js"
+		"postdeploy": "shx cp src/index.html dist",
+		"www": "node -r esm ./dist/express.js"
 	}
 }
