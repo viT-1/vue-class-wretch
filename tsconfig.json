@@ -6,10 +6,6 @@
 		"module": "es6",
 		"moduleResolution": "node",
 		"outDir": "dist",
-		"paths": {
-			"~/*": ["./*"]
-		},
-		"plugins": [{ "transform": "typescript-transform-paths" }],
 		"strict": true,
 		"target": "esnext"
 	},

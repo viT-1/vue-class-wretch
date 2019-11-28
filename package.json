@@ -1,6 +1,16 @@
 {
 	"name": "issue-vue-property-decorator-285",
-	"version": "0.0.4",
+	"version": "0.1.0",
+	"keywords": [
+		"esm",
+		"nobundle",
+		"without gulp",
+		"without webpack",
+		"without rollup",
+		"typescript",
+		"vue",
+		"vue-class-component"
+	],
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/viT-1/issue-vue-property-decorator-285.git"
@@ -13,20 +23,20 @@
 	"devDependencies": {
 		"@types/express": "4.11.1",
 		"esm": "3.2.25",
+		"replace-in-file": "4.2.0",
 		"shx": "0.3.2",
-		"ttypescript": "1.5.8",
-		"typescript": "^3.7.2",
-		"typescript-transform-paths": "1.1.13"
+		"typescript": "^3.7.2"
 	},
 	"scripts": {
 		"predeploy": "shx rm -rf dist",
-		"deploy": "ttsc",
-		"postdeploy": "npm run cindex | npm run ccompesm | npm run www",
+		"deploy": "tsc",
+		"postdeploy": "npm run cindex | npm run ccompesm | npm run resolveesm | npm run www",
 		"ccompesm": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
 		"cindex": "shx cp src/index.html dist",
-		"resolve": "npm run resolveclass | npm run resolvevue",
-		"resolveclass": "shx sed -i \"s|'vue-class-component'|'./vue-class-component.esm.js'/g\" dist/*.js",
-		"resolvevue": "shx sed -i \"s/'vue'/'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'/g\" dist/*.js",
+		"resolveesm": "npm run resolveclass | npm run resolvevue | npm run replaceprocess",
+		"replaceprocess": "replace-in-file --configFile=replace-process.config.js",
+		"resolveclass": "replace-in-file 'vue-class-component' './vue-class-component.esm.js' dist/*.js",
+		"resolvevue": "replace-in-file 'vue' 'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js' dist/*.js",
 		"www": "node -r esm ./dist/express.js"
 	}
 }
