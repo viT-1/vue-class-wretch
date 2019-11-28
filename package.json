@@ -1,6 +1,6 @@
 {
 	"name": "issue-vue-property-decorator-285",
-	"version": "0.0.3",
+	"version": "0.0.4",
 	"repository": {
 		"type": "git",
 		"url": "https://github.com/viT-1/issue-vue-property-decorator-285.git"
@@ -21,7 +21,7 @@
 	"scripts": {
 		"predeploy": "shx rm -rf dist",
 		"deploy": "ttsc",
-		"postdeploy": "npm run cindex | npm run ccompesm",
+		"postdeploy": "npm run cindex | npm run ccompesm | npm run www",
 		"ccompesm": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
 		"cindex": "shx cp src/index.html dist",
 		"resolve": "npm run resolveclass | npm run resolvevue",
