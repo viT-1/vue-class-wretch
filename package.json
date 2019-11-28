@@ -21,7 +21,12 @@
 	"scripts": {
 		"predeploy": "shx rm -rf dist",
 		"deploy": "ttsc",
-		"postdeploy": "shx cp src/index.html dist",
+		"postdeploy": "npm run cindex | npm run ccompesm",
+		"ccompesm": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
+		"cindex": "shx cp src/index.html dist",
+		"resolve": "npm run resolveclass | npm run resolvevue",
+		"resolveclass": "shx sed -i \"s|'vue-class-component'|'./vue-class-component.esm.js'/g\" dist/*.js",
+		"resolvevue": "shx sed -i \"s/'vue'/'https://cdn.jsdelivr.net/npm/vue@2.6.10/dist/vue.esm.browser.js'/g\" dist/*.js",
 		"www": "node -r esm ./dist/express.js"
 	}
 }
