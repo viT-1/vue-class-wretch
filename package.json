@@ -1,6 +1,6 @@
 {
 	"name": "issue-vue-property-decorator-285",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"keywords": [
 		"esm",
 		"nobundle",
@@ -18,7 +18,7 @@
 	"dependencies": {
 		"express": "4.17.1",
 		"vue": "2.6.10",
-		"vue-class-component": "7.1.0",
+		"vue-property-decorator": "8.3.0",
 		"wretch": "1.6.0"
 	},
 	"devDependencies": {
@@ -31,10 +31,13 @@
 	"scripts": {
 		"predeploy": "shx rm -rf dist",
 		"deploy": "tsc",
-		"postdeploy": "npm run cindex | npm run ccompesm | npm run resolveesm | npm run www",
-		"ccompesm": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
-		"cindex": "shx cp src/index.html tsconfig.json dist",
-		"resolveesm": "replace-in-file --configFile=replace.config.js",
+		"postdeploy": "npm run copy && npm run resolve_esm && npm run www",
+		"copy": "npm run copy_asis && npm run copy_esm",
+		"copy_asis": "shx cp src/index.html tsconfig.json dist",
+		"copy_esm": "npm run copy_vclass && npm run copy_vprop",
+		"copy_vclass": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
+		"copy_vprop": "shx cp ./node_modules/vue-property-decorator/lib/vue-property-decorator.js dist",
+		"resolve_esm": "replace-in-file --configFile=replace.config.js",
 		"www": "node -r esm ./dist/express.js"
 	}
 }

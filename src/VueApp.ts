@@ -1,4 +1,4 @@
-import Vue from 'vue';
+import { Vue } from 'vue-property-decorator';
 import { Vue as TypeVue } from 'vue/types/vue';
 
 import { SomeComponent } from './SomeComponent';
