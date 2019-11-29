@@ -1,6 +1,6 @@
 {
 	"name": "issue-vue-property-decorator-285",
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"keywords": [
 		"esm",
 		"nobundle",
@@ -18,7 +18,8 @@
 	"dependencies": {
 		"express": "4.17.1",
 		"vue": "2.6.10",
-		"vue-class-component": "7.1.0"
+		"vue-class-component": "7.1.0",
+		"wretch": "1.6.0"
 	},
 	"devDependencies": {
 		"@types/express": "4.11.1",
@@ -32,7 +33,7 @@
 		"deploy": "tsc",
 		"postdeploy": "npm run cindex | npm run ccompesm | npm run resolveesm | npm run www",
 		"ccompesm": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
-		"cindex": "shx cp src/index.html dist",
+		"cindex": "shx cp src/index.html tsconfig.json dist",
 		"resolveesm": "replace-in-file --configFile=replace.config.js",
 		"www": "node -r esm ./dist/express.js"
 	}
