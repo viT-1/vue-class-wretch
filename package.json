@@ -38,6 +38,7 @@
 		"copy_vclass": "shx cp ./node_modules/vue-class-component/dist/vue-class-component.esm.js dist",
 		"copy_vprop": "shx cp ./node_modules/vue-property-decorator/lib/vue-property-decorator.js dist",
 		"resolve_esm": "replace-in-file --configFile=replace.config.js",
+		"resolve_esm1": "shx sed -i \"s/'vue'/'https:\\/\\/cdn.jsdelivr.net\\/npm\\/vue@2.6.10\\/dist\\/vue.esm.browser.js'/g\" dist/*.js",
 		"www": "node -r esm ./dist/express.js"
 	}
 }
